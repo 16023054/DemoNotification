@@ -5,6 +5,8 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -52,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 builder.setSmallIcon(android.R.drawable.btn_star_big_off);
                 builder.setContentIntent(pIntent);
                 builder.setAutoCancel(true);
+                Uri uri= RingtoneManager.getDefaultUri
+                        (RingtoneManager.TYPE_NOTIFICATION);
+                builder.setSound(uri);
+
+                builder.setPriority(Notification.PRIORITY_HIGH);
 
                 Notification n = builder.build();
 
